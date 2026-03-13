@@ -39,24 +39,24 @@ flowchart TD
         C --> D[Linear Independence vs Dependence]
     end
 
-    subgraph P2["Phase 2 · Matrix Transformation 🚧"]
+    subgraph P2["Phase 2 · Matrix Transformation ✅"]
         E[Matrix as a Function] --> F[Scaling & Rotation]
         F --> G[Shear — The Tricky One]
         G --> H[Determinant & Dimension Collapse]
         H --> I[Inverse Matrix]
     end
 
-    subgraph P3["Phase 3 · Geometric Operations ⏳"]
+    subgraph P3["Phase 3 · Geometric Operations ✅"]
         J[Matrix Multiplication = Composed Transforms] --> K[Column Space & Inverse]
         K --> L[Dot Product & Projection]
     end
 
-    subgraph P4["Phase 4 · Eigenvalues & SVD ⏳"]
+    subgraph P4["Phase 4 · Eigenvalues & SVD ✅"]
         M[Eigenvectors] --> N[Eigenvalues]
         N --> O[SVD Decomposition]
     end
 
-    subgraph P5["Phase 5 · AI Applications ⏳"]
+    subgraph P5["Phase 5 · AI Applications ✅"]
         P[PCA — Dimensionality Reduction] --> Q[Neural Net Space Warping]
         Q --> R[Word Embeddings: King − Man + Woman = Queen]
     end
@@ -84,35 +84,33 @@ flowchart TD
 
 | Step | Topic | Key Idea | Status |
 |------|-------|----------|--------|
-| 4 | Scaling | Grid stretches along x/y axes | 🚧 In Progress |
-| 5 | Rotation | Origin fixed, angles preserved | 🚧 In Progress |
-| 6 | Shear | Floor stays put, layers slide sideways | 🚧 In Progress |
-| 7 | Determinant | Area scaling factor; det=0 means collapse | 🚧 In Progress |
-| 8 | Inverse Matrix | Rewind the transformation | 🚧 In Progress |
+| 4 | Scaling | Grid stretches along x/y axes | ✅ Done |
+| 5 | Rotation | Origin fixed, angles preserved | ✅ Done |
+| 6 | Shear | Floor stays put, layers slide sideways | ✅ Done |
+| 7 | Determinant | Area scaling factor; det=0 means collapse | ✅ Done |
+| 8 | Inverse Matrix | Rewind the transformation | ✅ Done |
 
 ### Phase 3 — Geometric Operations
 
 | Step | Topic | Key Idea | Status |
 |------|-------|----------|--------|
-| 9 | Matrix Multiplication | AB = apply B then A (order matters!) | ⏳ Waiting |
-| 10 | Column Space & Inverse | All reachable output vectors | ⏳ Waiting |
-| 11 | Dot Product & Projection | Similarity as shadow length | ⏳ Waiting |
+| 9 | Matrix Multiplication | AB = apply B then A (order matters!) | ✅ Done |
+| 10 | Dot Product & Projection | Similarity as shadow length | ✅ Done |
 
 ### Phase 4 — Eigenvalues & SVD
 
 | Step | Topic | Key Idea | Status |
 |------|-------|----------|--------|
-| 12 | Eigenvectors | Axes that only stretch, never rotate | ⏳ Waiting |
-| 13 | Eigenvalues | The stretch factor along each eigenvector | ⏳ Waiting |
-| 14 | SVD | Any matrix = Rotate → Scale → Rotate | ⏳ Waiting |
+| 11 | Eigenvectors & Eigenvalues | Axes that only stretch, never rotate | ✅ Done |
+| 12 | SVD | Any matrix = Rotate → Scale → Rotate | ✅ Done |
 
 ### Phase 5 — AI Applications
 
 | Step | Topic | Key Idea | Status |
 |------|-------|----------|--------|
-| 15 | PCA | Find the axis of maximum variance | ⏳ Waiting |
-| 16 | Neural Net Space Warping | Layers = linear transform + ReLU fold | ⏳ Waiting |
-| 17 | Word Embeddings | Vector arithmetic in semantic space | ⏳ Waiting |
+| 13 | PCA | Find the axis of maximum variance | ✅ Done |
+| 14 | Neural Net Space Warping | Layers = linear transform + ReLU fold | ✅ Done |
+| 15 | Word Embeddings | Vector arithmetic in semantic space | ✅ Done |
 
 ---
 

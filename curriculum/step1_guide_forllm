@@ -1,0 +1,136 @@
+[viz.bit-habit.com] 시각적 선형대수 가이드북: 1단계 - 공간의 탄생
+1. 공간의 원자: 기저 벡터 (Basis Vectors)
+💡 기초 설명 및 비유
+
+설명: 모든 2차원 공간의 점은 두 개의 표준 기저 벡터  
+i
+^
+ =[ 
+1
+0
+​	
+ ] 와  
+j
+^
+​	
+ =[ 
+0
+1
+​	
+ ] 의 조합으로 표현됩니다. 
+
+비유 (레고 블록): 공간을 조립식 레고 모델이라고 한다면, 기저 벡터는 가장 기본이 되는 '가로 1칸'과 '세로 1칸'짜리 블록입니다. 이 두 블록만 있으면 평면 위의 어떤 모양도 조립할 수 있습니다. 
+
+비유 (내비게이션): "동쪽으로 1칸( 
+i
+^
+ )", "북쪽으로 1칸( 
+j
+^
+​	
+ )"이라는 기본 명령어를 정해두는 것과 같습니다. 이 두 방향만 알면 지도상의 모든 위치를 설명할 수 있습니다. 
+
+🎬 Manim 시각화 가이드 (코딩용)
+
+배경: NumberPlane()을 사용하여 격자 무늬를 띄웁니다. 
+
+요소: 원점에서 뻗어 나가는 빨간색 화살표( 
+i
+^
+ )와 초록색 화살표( 
+j
+^
+​	
+ )를 Vector 객체로 생성합니다.
+
+애니메이션: GrowArrow를 사용하여 두 화살표가 원점에서 동시에 자라나게 합니다.
+
+강조: 격자의 눈금 하나가 이 화살표들의 길이와 일치함을 보여주기 위해 격자를 살짝 깜빡이거나 강조합니다.
+
+2. 선형 결합과 Span (Linear Combination & Span)
+💡 기초 설명 및 비유
+
+설명: 두 벡터에 각각 숫자(스칼라)를 곱해 늘리거나 줄인 뒤 더하는 과정을 '선형 결합'이라 하며, 이 결합으로 도달 가능한 모든 점의 집합을 'Span'이라고 합니다. 
+
+비유 (요리 레시피): 기저 벡터가 '소금'과 '설탕'이라면, 스칼라 값은 '두 스푼', '세 스푼' 같은 양(Quantity)입니다. 소금과 설탕의 양을 조절해서 만들 수 있는 모든 '맛의 영역'이 바로 Span입니다. 
+
+비유 (그림 그리기): 빨간색 붓과 파란색 붓이 있을 때, 각각의 색을 얼마나 섞느냐에 따라 캔버스 위에 칠할 수 있는 색의 범위가 결정됩니다. 
+
+🎬 Manim 시각화 가이드 (코딩용)
+
+동적 조절: ValueTracker를 사용하여 스칼라 값 a,b를 실시간으로 바꿉니다. 
+
+과정 노출:
+
+$\hat{i}$가 a배로 늘어나는 모습 (a 
+i
+^
+ ).
+
+$\hat{j}$가 b배로 늘어나는 모습 (b 
+j
+^
+​	
+ ).
+
+$a\hat{i}$의 끝에 $b\hat{j}$를 이어 붙이는 '평행사변형 법칙' 애니메이션. 
+
+Span 시각화: a,b 값을 무작위로 수천 번 바꾸면서 점들이 찍히게 하여, 결과적으로 평면 전체가 색칠되는 모습을 보여줍니다. 만약 두 벡터가 평행하다면 점들이 오직 '직선' 위에만 찍히며 공간이 찌그러짐을 보여줍니다. 
+
+3. 선형 종속과 독립 (Linear Dependence & Independence)
+💡 기초 설명 및 비유
+
+설명: 새로운 벡터가 기존 벡터들의 Span(영역) 안에 이미 포함되어 있다면 '선형 종속'이고, 새로운 방향을 제시한다면 '선형 독립'입니다. 
+
+비유 (팀워크): 팀원 A는 '가로 작업'을 잘하고 B는 '세로 작업'을 잘합니다. 이때 새로 들어온 C가 '대각선 작업(가로+세로)'만 할 줄 안다면, C는 팀에 새로운 능력을 보태지 못하는 '종속' 상태입니다. 반면 C가 '높이(3D)'를 쌓을 줄 안다면 그는 '독립'적인 인재입니다. 
+
+비유 (중복 데이터): 엑셀 시트에 '키(cm)'와 '몸무게' 컬럼이 있는데, 세 번째 컬럼으로 '키(inch)'를 추가한다면 이는 새로운 정보가 없는 종속된 데이터입니다. 
+
+🎬 Manim 시각화 가이드 (코딩용)
+
+3D 확장: ThreeDScene을 사용합니다.
+
+종속 상황: 2D 평면 위에 두 기저 벡터를 띄우고, 그 평면 위에 놓인 세 번째 벡터를 보여줍니다. 이 벡터는 아무리 움직여도 평면을 벗어날 수 없음을 보여줍니다.
+
+독립 상황: 세 번째 벡터가 평면 위로 솟구쳐 오르며 2D 평면이 3D 공간으로 확장되는 짜릿한 순간을 시각화합니다. 이때 set_camera_orientation을 사용하여 시점을 돌려 입체감을 강조합니다.
+
+🤖 다른 AI(코딩 에이전트)에게 전달할 상세 프롬프트
+Manim Visualization Request: Linear Algebra Step 1
+Goal
+Visualize the foundational concepts of Linear Algebra (Basis, Combination, Span, Independence) with a focus on "Visual Intuition."
+
+Module 1: Basis Vectors
+Create a 2D coordinate system using NumberPlane.
+
+Draw two vectors: i_hat in RED and j_hat in GREEN.
+
+Label them using MathTex.
+
+Animation: Show them growing from the origin using GrowArrow.
+
+Module 2: Linear Combination & Span
+Create two scalars, 'a' and 'b', using ValueTracker.
+
+Show a vector v = ai_hat + bj_hat.
+
+As 'a' and 'b' values change, animate the i_hat and j_hat scaling and their sum (tip-to-tail method).
+
+To visualize 'Span', leave a trail of points (dots) where the resultant vector 'v' lands.
+
+Transition: Show a case where i_hat and j_hat are parallel (e.g., and ) and demonstrate that the 'Span' collapses from a 2D plane to a 1D line.
+
+Module 3: Linear Dependence (3D Perspective)
+Switch to ThreeDScene.
+
+Show a 2D plane (XY plane) with two independent vectors.
+
+Case A (Dependent): Add a 3rd vector that lies on the same XY plane. Highlight that it adds no "new dimension." Use LinearTransformationScene logic to show the "squashing" effect.
+
+Case B (Independent): Move the 3rd vector to have a Z-component (e.g., [0.5, 0.5, 2]). Animate the camera rotating to show the space expanding into 3D.
+
+Style Requirements
+Use colors consistently: i_hat (Red), j_hat (Green), Resultant (Yellow).
+
+Resolution: Low quality for fast feedback (-pql flag).
+
+Smooth transitions: Use ReplacementTransform for morphing between states.
